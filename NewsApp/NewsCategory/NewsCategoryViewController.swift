@@ -39,7 +39,7 @@ class NewsCategoryViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
-        let vc = ArticlesViewController(nibName: nil, bundle: nil, indexPath.row)
+        let vc = ArticlesViewController()
         self.show(vc, sender: category[indexPath.row])
     }
 }

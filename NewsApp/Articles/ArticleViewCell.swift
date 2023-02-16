@@ -9,8 +9,10 @@ import UIKit
 
 class ArticleViewCell: UITableViewCell {
 
-    @IBOutlet weak var articleDescriptionLable: UILabel!
-    @IBOutlet weak var articleNameLable: UILabel!
+    
+    @IBOutlet weak var photoView: UIImageView!
+    @IBOutlet weak var articleTitleLable: UILabel!
+    @IBOutlet weak var articleDescription: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -18,8 +20,12 @@ class ArticleViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        self.photoView.layer.cornerRadius = 25
+        self.articleTitleLable.numberOfLines = 5
+        self.articleDescription.numberOfLines = 2
+        
     }
 
 }
+
+
