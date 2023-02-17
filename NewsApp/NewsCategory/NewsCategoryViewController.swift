@@ -12,13 +12,25 @@ import UIKit
 
 class NewsCategoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
+    @IBOutlet weak var total: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+                if segue.identifier == "showArticles" {
+                    if let indexPath = self.tableView.indexPathForSelectedRow{
+                        let controller = segue.destination as! ArticlesViewController
+                        controller.categoryName = category[indexPath.row]
+//
+                    }
+                }
+            }
     
     private let category: [String] = ["Business","Entertainment","General","Health","Science","Sports","Technology"]
    
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        self.total.text = " Total number of read articles: \(String(ArticlesViewController().readArticleIndex))"
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

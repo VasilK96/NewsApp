@@ -19,7 +19,20 @@ struct dataType : Identifiable {
 
 class ArticlesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBAction func backToNewsArticle(_ sender: Any) {
+    var vc = NewsCategoryViewController()
+        navigationController?.pushViewController(vc, animated: true)
+        
+    }
     @IBOutlet weak var articleTableView: UITableView!
+    var readArticleIndex: Int {
+        get {
+          return UserDefaults.standard.integer(forKey: "readArticles")
+        }
+        set {
+          UserDefaults.standard.set(newValue, forKey: "readArticles")
+        }
+      }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
                 if segue.identifier == "showArticle" {
@@ -32,10 +45,9 @@ class ArticlesViewController: UIViewController, UITableViewDelegate, UITableView
             }
     
     private let category: [String] = ["Business","Entertainment","General","Health","Science","Sports","Technology"]
-    
-    
     var categoryName = ""
     var datas = [dataType]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,6 +113,10 @@ class ArticlesViewController: UIViewController, UITableViewDelegate, UITableView
         return 170
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        readArticleIndex = readArticleIndex+1
+        
+    }
 }
 
 extension UIImageView {

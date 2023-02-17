@@ -14,15 +14,28 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="NewsCategoryViewController" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5if-lz-zh7">
+                                <rect key="frame" x="0.0" y="-32" width="375" height="56"/>
+                                <items>
+                                    <navigationItem title="News Category" id="Tmy-QQ-8eB"/>
+                                </items>
+                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Eho-wi-mJz">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="24" width="375" height="623"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="623" id="cK9-NO-7TI"/>
                                 </constraints>
+                                <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Total number of read articles:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GRK-KR-T6a">
+                                    <rect key="frame" x="0.0" y="121.5" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="topicCell" id="0i3-je-Lhc" customClass="CategoryTableViewCell" customModule="NewsApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="375" height="43.5"/>
@@ -56,26 +69,22 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="DHR-i4-xaL"/>
                                 </connections>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5if-lz-zh7">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <items>
-                                    <navigationItem title="News Category" id="Tmy-QQ-8eB"/>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Eho-wi-mJz" firstAttribute="top" secondItem="5if-lz-zh7" secondAttribute="bottom" id="6ZZ-bU-2Ib"/>
-                            <constraint firstItem="Eho-wi-mJz" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="AmB-7Z-mql"/>
-                            <constraint firstItem="Eho-wi-mJz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="RTA-cp-9ee"/>
-                            <constraint firstItem="Eho-wi-mJz" firstAttribute="trailing" secondItem="5if-lz-zh7" secondAttribute="trailing" id="fpi-4Y-QJ0"/>
-                            <constraint firstAttribute="trailing" secondItem="Eho-wi-mJz" secondAttribute="trailing" id="mDy-NM-MgJ"/>
-                            <constraint firstItem="Eho-wi-mJz" firstAttribute="leading" secondItem="5if-lz-zh7" secondAttribute="leading" id="sHh-7d-bgn"/>
+                            <constraint firstItem="Eho-wi-mJz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="A94-dd-8N6"/>
+                            <constraint firstItem="Eho-wi-mJz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LBV-tc-2jC"/>
+                            <constraint firstItem="Eho-wi-mJz" firstAttribute="trailing" secondItem="5if-lz-zh7" secondAttribute="trailing" id="Zy1-Mq-DOm"/>
+                            <constraint firstItem="Eho-wi-mJz" firstAttribute="leading" secondItem="5if-lz-zh7" secondAttribute="leading" id="ae2-tR-VFy"/>
+                            <constraint firstItem="Eho-wi-mJz" firstAttribute="top" secondItem="5if-lz-zh7" secondAttribute="bottom" id="bbv-uG-OJD"/>
+                            <constraint firstItem="Eho-wi-mJz" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="la3-Mv-7W4"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="f1k-9K-WUb"/>
                     <connections>
                         <outlet property="tableView" destination="Eho-wi-mJz" id="xlf-9d-yPB"/>
+                        <outlet property="total" destination="GRK-KR-T6a" id="Xtr-84-IDf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -85,13 +94,13 @@
         <!--Articles View Controller-->
         <scene sceneID="NEx-u1-iaT">
             <objects>
-                <viewController id="vqO-mI-qql" customClass="ArticlesViewController" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="vqO-mI-qql" customClass="ArticlesViewController" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rXm-hZ-tLY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="1Gu-L0-QF9">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="article" rowHeight="196" id="pjf-Re-Ssk" customClass="ArticleViewCell" customModule="NewsApp" customModuleProvider="target">
@@ -134,13 +143,29 @@
                                     <outlet property="delegate" destination="vqO-mI-qql" id="Vc5-Mx-hMa"/>
                                 </connections>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S6O-Jb-GYB">
+                                <rect key="frame" x="0.0" y="1" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Articles" id="Ym5-jo-rzd">
+                                        <barButtonItem key="leftBarButtonItem" image="arrowshape.left" catalog="system" style="plain" id="iJn-0x-GTM">
+                                            <connections>
+                                                <action selector="backToNewsArticle:" destination="vqO-mI-qql" id="VPb-CM-JbJ"/>
+                                                <segue destination="BYZ-38-t0r" kind="show" id="JRq-HH-KsR"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WOe-fQ-epS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="WOe-fQ-epS" firstAttribute="bottom" secondItem="1Gu-L0-QF9" secondAttribute="bottom" id="0Aw-e5-v3a"/>
+                            <constraint firstItem="S6O-Jb-GYB" firstAttribute="top" secondItem="WOe-fQ-epS" secondAttribute="top" constant="1" id="4HQ-Oc-aWV"/>
+                            <constraint firstItem="S6O-Jb-GYB" firstAttribute="trailing" secondItem="1Gu-L0-QF9" secondAttribute="trailing" id="ZZy-KC-0zU"/>
                             <constraint firstItem="1Gu-L0-QF9" firstAttribute="top" secondItem="WOe-fQ-epS" secondAttribute="top" id="arC-co-NRf"/>
                             <constraint firstItem="WOe-fQ-epS" firstAttribute="trailing" secondItem="1Gu-L0-QF9" secondAttribute="trailing" id="nCR-VB-xLD"/>
+                            <constraint firstItem="S6O-Jb-GYB" firstAttribute="leading" secondItem="1Gu-L0-QF9" secondAttribute="leading" id="v4H-2B-Irz"/>
                             <constraint firstItem="1Gu-L0-QF9" firstAttribute="leading" secondItem="WOe-fQ-epS" secondAttribute="leading" id="zgN-Uf-cTY"/>
                         </constraints>
                     </view>
@@ -169,6 +194,19 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cuh-BY-kB4">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Article" id="iLe-3i-7nl">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="Xcq-m5-uc7">
+                                            <connections>
+                                                <segue destination="vqO-mI-qql" kind="show" id="B4S-2R-3eg"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oDl-lE-bHT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -189,7 +227,12 @@
             <point key="canvasLocation" x="1486" y="-2"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="N5s-aN-3cH"/>
+        <segue reference="B4S-2R-3eg"/>
+    </inferredMetricsTieBreakers>
     <resources>
+        <image name="arrowshape.left" catalog="system" width="128" height="104"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
